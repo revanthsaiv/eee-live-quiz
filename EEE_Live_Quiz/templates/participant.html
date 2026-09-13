@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block title %}Quiz Participant{% endblock %}
+{% block body %}
+<div class="participant-wrap">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">EEE LIVE QUIZ</div>
+      <div id="who" class="muted">Connecting…</div>
+    </div>
+    <div class="scorebox">Score <strong id="score">0</strong></div>
+  </header>
+
+  <main class="participant-main">
+    <div id="waiting" class="card center-content">
+      <h2>Connected</h2>
+      <p>Waiting for the host to start the quiz.</p>
+      <div class="pulse"></div>
+    </div>
+
+    <div id="quizCard" class="card hidden">
+      <div class="question-meta">
+        <span id="roundTitle">Round</span>
+        <span id="questionNum">Question</span>
+      </div>
+      <div class="timer"><div id="timerBar"></div></div>
+      <div id="timeText" class="time-text"></div>
+      <h2 id="questionText"></h2>
+      <div id="questionImage"></div>
+      <div id="answerArea"></div>
+      <div id="statusText" class="status-text"></div>
+    </div>
+
+    <div id="finished" class="card center-content hidden">
+      <h2>Quiz finished</h2>
+      <p>Your final score</p>
+      <div class="final-score" id="finalScore">0</div>
+    </div>
+  </main>
+</div>
+
+<script>
+const PID = "{{ pid }}";
+let ws;
+let latest = null;
+let clockOffset = 0;
+let timerRAF = null;
+
+function connect(){
+  const proto = location.protocol === "https:" ? "wss" : "ws";
+  ws = new WebSocket(`${proto}://${location.host}/ws/participant/${PID}`);
+  ws.onmessage = e => {
+    const s = JSON.parse(e.data);
+    latest = s;
+    clockOffset = s.server_time - Date.now();
+    render(s);
+  };
+  ws.onclose = () => setTimeout(connect, 1000);
+}
+
+function serverNow(){ return Date.now() + clockOffset; }
+
+function render(s){
+  if(s.participant){
+    document.getElementById("who").textContent = `${s.participant.name} • ${s.participant.roll}`;
+    document.getElementById("score").textContent = s.participant.score;
+    document.getElementById("finalScore").textContent = s.participant.score;
+  }
+
+  const waiting = document.getElementById("waiting");
+  const card = document.getElementById("quizCard");
+  const finished = document.getElementById("finished");
+
+  if(s.status === "idle"){
+    waiting.classList.remove("hidden");
+    card.classList.add("hidden");
+    finished.classList.add("hidden");
+    return;
+  }
+  if(s.status === "finished"){
+    waiting.classList.add("hidden");
+    card.classList.add("hidden");
+    finished.classList.remove("hidden");
+    return;
+  }
+
+  waiting.classList.add("hidden");
+  finished.classList.add("hidden");
+  card.classList.remove("hidden");
+
+  document.getElementById("roundTitle").textContent = s.round?.title || "";
+  document.getElementById("questionNum").textContent =
+    `Q ${s.question_index + 1} / ${s.round?.question_count || "?"}`;
+  document.getElementById("questionText").textContent = s.question?.text || "";
+
+  const imgBox = document.getElementById("questionImage");
+  imgBox.innerHTML = "";
+  if(s.question?.image){
+    const img = document.createElement("img");
+    img.src = s.question.image;
+    img.className = "question-image";
+    imgBox.appendChild(img);
+  }
+
+  const area = document.getElementById("answerArea");
+  const answered = s.participant?.has_answered;
+  area.innerHTML = "";
+  if(answered){
+    document.getElementById("statusText").textContent = "Answer submitted ✓";
+  } else {
+    document.getElementById("statusText").textContent = "";
+    if(s.question?.type === "mcq"){
+      (s.question.options || []).forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = opt;
+        btn.onclick = () => submitAnswer(opt);
+        area.appendChild(btn);
+      });
+    } else {
+      const form = document.createElement("form");
+      form.className = "short-form";
+      const input = document.createElement("input");
+      input.placeholder = "Type your answer";
+      input.autocomplete = "off";
+      const btn = document.createElement("button");
+      btn.className = "primary";
+      btn.textContent = "Submit";
+      btn.type = "submit";
+      form.onsubmit = e => {
+        e.preventDefault();
+        if(input.value.trim()) submitAnswer(input.value.trim());
+      };
+      form.append(input, btn);
+      area.appendChild(form);
+      setTimeout(()=>input.focus(), 50);
+    }
+  }
+  runTimer(s);
+}
+
+function submitAnswer(answer){
+  if(!latest || latest.status !== "running") return;
+  if(serverNow() > latest.deadline) return;
+  ws.send(JSON.stringify({
+    type:"answer",
+    question_serial: latest.question_serial,
+    answer
+  }));
+}
+
+function runTimer(s){
+  if(timerRAF) cancelAnimationFrame(timerRAF);
+  const bar = document.getElementById("timerBar");
+  const text = document.getElementById("timeText");
+  const tick = () => {
+    if(!latest || latest.question_serial !== s.question_serial) return;
+    const total = Math.max(1, s.deadline - s.started_at);
+    const remain = Math.max(0, s.deadline - serverNow());
+    const pct = Math.max(0, Math.min(100, remain / total * 100));
+    bar.style.width = pct + "%";
+    text.textContent = `${(remain/1000).toFixed(1)} s`;
+    if(remain <= 0){
+      document.querySelectorAll("button,input").forEach(el => {
+        if(el.closest("#quizCard")) el.disabled = true;
+      });
+      text.textContent = "Time up";
+      return;
+    }
+    timerRAF = requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+connect();
+</script>
+{% endblock %}

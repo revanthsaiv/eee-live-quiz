@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}Quiz Host{% endblock %}
+{% block body %}
+<div class="host-shell">
+  <header class="host-header">
+    <div>
+      <div class="eyebrow">CONTROL ROOM</div>
+      <h1>EEE Live Quiz Host</h1>
+    </div>
+    <div class="host-links">
+      <a href="/projector" target="_blank">Open Projector</a>
+      <a href="/" target="_blank">Open Join Page</a>
+    </div>
+  </header>
+
+  <section class="grid two">
+    <div class="card">
+      <h2>Live Control</h2>
+      <div class="stats-grid">
+        <div><span>Joined</span><strong id="joined">0</strong></div>
+        <div><span>Connected</span><strong id="connected">0</strong></div>
+        <div><span>Answered</span><strong id="answered">0</strong></div>
+        <div><span>Status</span><strong id="status">idle</strong></div>
+      </div>
+      <div class="live-q">
+        <div id="liveRound" class="eyebrow">No round active</div>
+        <h3 id="liveQuestion">Waiting to start</h3>
+        <div id="liveTimer" class="big-timer">—</div>
+      </div>
+      <div class="controls">
+        <button class="primary" onclick="control('start')">Start Quiz</button>
+        <button onclick="control('next')">Next Question</button>
+        <button onclick="control('restart_current')">Restart Current</button>
+        <button class="danger" onclick="control('finish')">Finish</button>
+      </div>
+      <label class="switchline">
+        <input type="checkbox" id="autoAdvance" checked onchange="toggleAuto()">
+        Auto-advance when timer ends
+      </label>
+      <div class="network-box">
+        <b>Participant link</b>
+        <div id="joinLinks">Loading network address…</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Leaderboard</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Name</th><th>Roll</th><th>Score</th><th>Live</th></tr></thead>
+          <tbody id="leaderboard"></tbody>
+        </table>
+      </div>
+      <a class="buttonlike" href="/api/results/download">Download Results JSON</a>
+    </div>
+  </section>
+
+  <section class="card editor-card">
+    <div class="editor-head">
+      <div>
+        <h2>Question Bank Editor</h2>
+        <p class="muted">Edit JSON and save. Each question can have its own timer and marks.</p>
+      </div>
+      <button class="primary" onclick="saveQuestions()">Save Questions</button>
+    </div>
+    <textarea id="editor" spellcheck="false"></textarea>
+    <div id="saveMsg" class="muted"></div>
+  </section>
+</div>
+
+<script>
+let ws, latest, offset=0, raf;
+async function loadQuestions(){
+  const r=await fetch("/api/questions"); const j=await r.json();
+  document.getElementById("editor").value=JSON.stringify(j,null,2);
+}
+async function saveQuestions(){
+  const el=document.getElementById("saveMsg");
+  try{
+    const data=JSON.parse(document.getElementById("editor").value);
+    const r=await fetch("/api/questions",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    if(!r.ok)throw new Error(await r.text());
+    el.textContent="Saved ✓";
+  }catch(e){el.textContent="Error: "+e.message;}
+}
+async function control(action, body={}){
+  await fetch("/api/control/"+action,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+}
+async function toggleAuto(){
+  await control("toggle_auto",{enabled:document.getElementById("autoAdvance").checked});
+}
+function connect(){
+  const proto=location.protocol==="https:"?"wss":"ws";
+  ws=new WebSocket(`${proto}://${location.host}/ws/host`);
+  ws.onmessage=e=>{latest=JSON.parse(e.data);offset=latest.server_time-Date.now();render(latest);};
+  ws.onclose=()=>setTimeout(connect,1000);
+}
+function render(s){
+  joined.textContent=s.participants; connected.textContent=s.connected; answered.textContent=s.answered; status.textContent=s.status;
+  autoAdvance.checked=!!s.auto_advance;
+  liveRound.textContent=s.round?.title||"No round active";
+  liveQuestion.textContent=s.question?.text|| (s.status==="finished"?"Quiz finished":"Waiting to start");
+  const tbody=document.getElementById("leaderboard"); tbody.innerHTML="";
+  (s.leaderboard||[]).forEach((x,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${i+1}</td><td>${esc(x.name)}</td><td>${esc(x.roll)}</td><td><b>${x.score}</b></td><td>${x.connected?"●":"○"}</td>`;
+    tbody.appendChild(tr);
+  });
+  timer(s);
+}
+function esc(t){return String(t).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function timer(s){
+  if(raf)cancelAnimationFrame(raf);
+  if(s.status!=="running"){liveTimer.textContent="—";return;}
+  function tick(){
+    if(!latest||latest.question_serial!==s.question_serial)return;
+    const rem=Math.max(0,s.deadline-(Date.now()+offset));
+    liveTimer.textContent=rem>0?(rem/1000).toFixed(1)+" s":"TIME";
+    if(rem>0)raf=requestAnimationFrame(tick);
+  } tick();
+}
+async function network(){
+  const r=await fetch("/api/network"); const j=await r.json();
+  const box=document.getElementById("joinLinks");
+  const links=(j.ips||[]).map(ip=>`http://${ip}:${j.port}/`);
+  box.innerHTML=links.length?links.map(x=>`<code>${x}</code>`).join("<br>"):`<code>http://YOUR-LAPTOP-IP:${j.port}/</code>`;
+}
+loadQuestions();network();connect();
+</script>
+{% endblock %}

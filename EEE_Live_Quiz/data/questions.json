@@ -1,0 +1,983 @@
+{
+  "title": "EEE Technical Challenge",
+  "rounds": [
+    {
+      "title": "Round 1 — Identify It",
+      "description": "Image/component/circuit identification",
+      "questions": [
+        {
+          "id": "R1Q1",
+          "type": "mcq",
+          "text": "Which component stores energy in an electric field?",
+          "options": [
+            "Inductor",
+            "Capacitor",
+            "Resistor",
+            "Diode"
+          ],
+          "answer": "Capacitor",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q2",
+          "type": "short",
+          "text": "Write the SI unit of electrical resistance.",
+          "accepted_answers": [
+            "ohm",
+            "ohms",
+            "Ω"
+          ],
+          "time_limit": 12,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q3",
+          "type": "mcq",
+          "text": "Which machine converts mechanical energy into electrical energy?",
+          "options": [
+            "Motor",
+            "Generator",
+            "Transformer",
+            "Rectifier"
+          ],
+          "answer": "Generator",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q4",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 4",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q5",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 5",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q6",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 6",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q7",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 7",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q8",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 8",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q9",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 9",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q10",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 10",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q11",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 11",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q12",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 12",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q13",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 13",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q14",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 14",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R1Q15",
+          "type": "mcq",
+          "text": "Replace with Round 1, Question 15",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 15,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        }
+      ]
+    },
+    {
+      "title": "Round 2 — EEE Brain Race",
+      "description": "Quick formula-based numericals",
+      "questions": [
+        {
+          "id": "R2Q1",
+          "type": "mcq",
+          "text": "A 230 V supply is connected across a 10 Ω resistor. Current is:",
+          "options": [
+            "2.3 A",
+            "23 A",
+            "230 A",
+            "0.23 A"
+          ],
+          "answer": "23 A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q2",
+          "type": "short",
+          "text": "A 2 kW load runs for 3 hours. Energy consumed in kWh?",
+          "accepted_answers": [
+            "6",
+            "6 kwh",
+            "6kwh"
+          ],
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q3",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 3",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q4",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 4",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q5",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 5",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q6",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 6",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q7",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 7",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q8",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 8",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q9",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 9",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q10",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 10",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q11",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 11",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q12",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 12",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q13",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 13",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q14",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 14",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R2Q15",
+          "type": "mcq",
+          "text": "Replace with Round 2, Question 15",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 2,
+          "marks_wrong": -1,
+          "marks_unanswered": 0
+        }
+      ]
+    },
+    {
+      "title": "Round 3 — What Would You Do?",
+      "description": "Practical troubleshooting scenarios",
+      "questions": [
+        {
+          "id": "R3Q1",
+          "type": "mcq",
+          "text": "A motor suddenly draws twice its normal current. Which is a likely cause?",
+          "options": [
+            "Overload",
+            "Low voltage",
+            "Mechanical bearing issue",
+            "All of the above"
+          ],
+          "answer": "All of the above",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q2",
+          "type": "mcq",
+          "text": "You receive a mild shock from the metal body of an appliance. What should be checked first?",
+          "options": [
+            "Earthing",
+            "Paint color",
+            "Fuse rating only",
+            "Nameplate"
+          ],
+          "answer": "Earthing",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q3",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 3",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q4",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 4",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q5",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 5",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q6",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 6",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q7",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 7",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q8",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 8",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q9",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 9",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q10",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 10",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q11",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 11",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q12",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 12",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q13",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 13",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q14",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 14",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R3Q15",
+          "type": "mcq",
+          "text": "Replace with Round 3, Question 15",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 25,
+          "marks_correct": 4,
+          "marks_wrong": -2,
+          "marks_unanswered": 0
+        }
+      ]
+    },
+    {
+      "title": "Round 4 — EEE Trap",
+      "description": "Concept twists",
+      "questions": [
+        {
+          "id": "R4Q1",
+          "type": "mcq",
+          "text": "In an ideal transformer, if voltage is doubled, current is approximately:",
+          "options": [
+            "Doubled",
+            "Halved",
+            "Unchanged",
+            "Zero"
+          ],
+          "answer": "Halved",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q2",
+          "type": "short",
+          "text": "For a purely inductive AC circuit, current lags voltage by how many degrees?",
+          "accepted_answers": [
+            "90",
+            "90°",
+            "90 degrees"
+          ],
+          "time_limit": 18,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q3",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 3",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q4",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 4",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q5",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 5",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q6",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 6",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q7",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 7",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q8",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 8",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q9",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 9",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q10",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 10",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q11",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 11",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q12",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 12",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q13",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 13",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q14",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 14",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        },
+        {
+          "id": "R4Q15",
+          "type": "mcq",
+          "text": "Replace with Round 4, Question 15",
+          "options": [
+            "Option A",
+            "Option B",
+            "Option C",
+            "Option D"
+          ],
+          "answer": "Option A",
+          "time_limit": 20,
+          "marks_correct": 5,
+          "marks_wrong": -3,
+          "marks_unanswered": 0
+        }
+      ]
+    }
+  ]
+}

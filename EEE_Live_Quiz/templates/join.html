@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Join Quiz{% endblock %}
+{% block body %}
+<div class="center-shell">
+  <div class="card join-card">
+    <div class="eyebrow">LIVE CLASSROOM QUIZ</div>
+    <h1>EEE Technical Challenge</h1>
+    <p class="muted">Enter your details. Keep this page open during the quiz.</p>
+    <form method="post" action="/join">
+      <label>Name</label>
+      <input name="name" required autocomplete="name" placeholder="Your name">
+      <label>Roll Number</label>
+      <input name="roll" required autocomplete="off" placeholder="e.g. 324103314110">
+      <button class="primary big" type="submit">Join Quiz</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

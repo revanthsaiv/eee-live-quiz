@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Projector View{% endblock %}
+{% block body %}
+<div class="projector">
+  <div class="projector-top">
+    <div>
+      <div class="eyebrow">EEE TECHNICAL CHALLENGE</div>
+      <h2 id="pRound">Waiting to start</h2>
+    </div>
+    <div class="projector-stats">
+      <span>Joined <strong id="pJoined">0</strong></span>
+      <span>Answered <strong id="pAnswered">0</strong></span>
+    </div>
+  </div>
+
+  <div id="pIdle" class="projector-center">
+    <h1 id="pTitle">EEE Technical Challenge</h1>
+    <p>Participants: open the quiz link on your phone and join.</p>
+  </div>
+
+  <div id="pQuestion" class="projector-question hidden">
+    <div class="qcount" id="pCount"></div>
+    <h1 id="pText"></h1>
+    <div id="pImage"></div>
+    <div id="pOptions" class="projector-options"></div>
+    <div class="timer projector-timer"><div id="pTimerBar"></div></div>
+    <div id="pTime" class="projector-time"></div>
+  </div>
+
+  <div id="pFinished" class="projector-center hidden">
+    <h1>Quiz Complete</h1>
+    <div id="pWinners" class="winners"></div>
+  </div>
+</div>
+
+<script>
+let ws, latest, offset=0, raf;
+function connect(){
+  const proto = location.protocol === "https:" ? "wss":"ws";
+  ws = new WebSocket(`${proto}://${location.host}/ws/projector`);
+  ws.onmessage = e => { latest=JSON.parse(e.data); offset=latest.server_time-Date.now(); render(latest); };
+  ws.onclose = () => setTimeout(connect,1000);
+}
+function now(){return Date.now()+offset}
+function render(s){
+  document.getElementById("pJoined").textContent=s.participants;
+  document.getElementById("pAnswered").textContent=s.answered;
+  document.getElementById("pTitle").textContent=s.quiz_title;
+  const idle=document.getElementById("pIdle"), q=document.getElementById("pQuestion"), f=document.getElementById("pFinished");
+
+  if(s.status==="idle"){
+    idle.classList.remove("hidden"); q.classList.add("hidden"); f.classList.add("hidden"); return;
+  }
+  if(s.status==="finished"){
+    idle.classList.add("hidden"); q.classList.add("hidden"); f.classList.remove("hidden");
+    const top=(s.leaderboard||[]).slice(0,5);
+    document.getElementById("pWinners").innerHTML=top.map((x,i)=>`<div><b>#${i+1}</b> ${esc(x.name)} <span>${x.score}</span></div>`).join("");
+    return;
+  }
+  idle.classList.add("hidden"); f.classList.add("hidden"); q.classList.remove("hidden");
+  document.getElementById("pRound").textContent=s.round?.title||"";
+  document.getElementById("pCount").textContent=`Question ${s.question_index+1} of ${s.round?.question_count||"?"}`;
+  document.getElementById("pText").textContent=s.question?.text||"";
+  const opts=document.getElementById("pOptions"); opts.innerHTML="";
+  if(s.question?.type==="mcq"){
+    (s.question.options||[]).forEach((o,i)=>{
+      const d=document.createElement("div"); d.className="projector-option"; d.textContent=`${String.fromCharCode(65+i)}. ${o}`; opts.appendChild(d);
+    });
+  }
+  const imgBox=document.getElementById("pImage"); imgBox.innerHTML="";
+  if(s.question?.image){const img=document.createElement("img");img.src=s.question.image;img.className="projector-image";imgBox.appendChild(img);}
+  timer(s);
+}
+function esc(t){return String(t).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function timer(s){
+  if(raf) cancelAnimationFrame(raf);
+  const bar=document.getElementById("pTimerBar"), txt=document.getElementById("pTime");
+  function tick(){
+    if(!latest||latest.question_serial!==s.question_serial)return;
+    const total=Math.max(1,s.deadline-s.started_at), rem=Math.max(0,s.deadline-now());
+    bar.style.width=(rem/total*100)+"%"; txt.textContent=rem>0?`${(rem/1000).toFixed(1)} s`:"TIME";
+    if(rem>0)raf=requestAnimationFrame(tick);
+  } tick();
+}
+connect();
+</script>
+{% endblock %}
