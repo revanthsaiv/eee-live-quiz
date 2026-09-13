@@ -7,7 +7,6 @@
       <div class="eyebrow">EEE LIVE QUIZ</div>
       <div id="who" class="muted">Connecting…</div>
     </div>
-    <div class="scorebox">Score <strong id="score">0</strong></div>
   </header>
 
   <main class="participant-main">
@@ -61,9 +60,8 @@ function serverNow(){ return Date.now() + clockOffset; }
 
 function render(s){
   if(s.participant){
-    document.getElementById("who").textContent = `${s.participant.name} • ${s.participant.roll}`;
-    document.getElementById("score").textContent = s.participant.score;
-    document.getElementById("finalScore").textContent = s.participant.score;
+  document.getElementById("who").textContent = `${s.participant.name} • ${s.participant.roll}`;
+  document.getElementById("finalScore").textContent = s.participant.score;
   }
 
   const waiting = document.getElementById("waiting");
